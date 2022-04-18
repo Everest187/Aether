@@ -24,7 +24,7 @@
   **Discord T0S is pretty rough w/ their T0S. 
   This Script is a simple easy to use program to protect yourself against T0S. Allowing you to talk freely with your m8s on Discord.**
   
-  -Token Raper
+  - Token Raper
 **Leaves servers, blocks all dms, changes status, profile, theme, lang and much more to f*** up a Discord account
   
   > Provided for @R3P & some other associates of scene.

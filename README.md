@@ -15,7 +15,7 @@
   </a>
 </p>
   
-**Aether is a Multi-Tool containing a few unique and powerful tools**
+**Aether is a Multi-Tool containing a few BUT unique and powerful tools**
   
 - Any damage that has been created from this program is **not** my responsiblity and is for you to handle.
   

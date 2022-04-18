@@ -16,7 +16,9 @@
 </p>
   
 **Aether is a Multi-Tool containing a few unique and powerful tools**
-Any damage that has been created from this program is **not** my responsiblity and is for you to handle.
+  
+- Any damage that has been created from this program is **not** my responsiblity and is for you to handle.
+  
 *Functions/Tools*
   - Leet . 1337 
   **Discord T0S is pretty rough w/ their T0S. 

@@ -21,7 +21,7 @@
   
 *Functions/Tools*
   - Leet . 1337 
-  **Discord T0S is pretty rough w/ their T0S. 
+  **Discord T0S is pretty rough and any Malicious words can lead to bans or even your account being termed. 
   This Script is a simple easy to use program to protect yourself against T0S. Allowing you to talk freely with your m8s on Discord.**
   
   - Token Raper
@@ -55,5 +55,5 @@
   - *Decoder* (Reverses Leet into readable text)
   - *Encoder* (Changes readable text into Leet A.B.C)
   - *Few Chars* (Changes selected chars into Leet (Upper Case i.e., hEllo wORld -> h3llo w0I2d
-  - *Direct Disc* (By typing in a Discord channel the program will recognize and find the channel id allowing you to send text straight from the console which
+  - *Direct Disc* (By typing in a Discord channel the program will recognize and find the channel id allowing you to send text straight from console which
   will then be converted into leet and will be delivered to the specified channel)

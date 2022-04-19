@@ -18,8 +18,8 @@
 **Aether is a Multi-Tool containing a few BUT unique and powerful tools**
   
 - Any damage that has been created from this program is **not** my responsiblity and is for you to handle
- * DISCLAIMER: the developers assume no liabilaty and are not responsible for any misuse or damages caused by the
- script 
+ * **DISCLAIMER: the developers assume no liabilaty and are not responsible for any misuse or damages caused by the
+ script **
   
 *Functions/Tools*
   - Leet . 1337 

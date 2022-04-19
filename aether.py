@@ -1,9 +1,7 @@
 from storage.title import Logo
-from storage.sck import ScketConn
-from leet.leets import leet_main
 from storage.s3lf import WebsocketConn
 from utils import *
-from data import categories, options
+from data import options
 import sys
 from colorama import Fore
 
@@ -31,7 +29,7 @@ if __name__ == "__main__":
 		print(logo.watermark("root"), end="")
 		opt = input(f"> ")
 
-		if (keyvalue := options[opt]) and (categories[keyvalue] == "discord"):
+		if (keyvalue := options[opt]) and (keyvalue["category"] == "discord"):
 			fault_token = read_data("token.data")
 			try:
 				token = "".join(fault_token)

@@ -33,7 +33,7 @@ class WebsocketConn:
 		    "op": 2,
 		    "d": {
 		        "token": self.token,
-		        "intents": 9216,
+		        "intents": 4608,
 		        "properties": {"$os": "linux/windoself.ws", "$broself.wser": "firefox", "$device": "computer"},
 		    },
 		}
@@ -42,11 +42,11 @@ class WebsocketConn:
 		while True:
 			event = self.receive()
 			if event["t"] == "READY":
-				print(info("Heartbeat Connected"))
-			if event["t"] == "MESSAGE_REACTION_ADD" and event["d"]["user_id"] == self.author:
+				print(info("Self Bot is ready"))
+
+			elif event["t"] == "MESSAGE_CREATE" and event["d"]["author"]["id"] == self.author and event["d"]["content"].startswith("$s"):			
 				channel_id = event["d"]["channel_id"]
-				print(info(f"Sending to ({channel_id})"))
+				print(info(f"Sending to ({channel_id}})"))
 				print(logo.watermark("messenger"), end="")
-				msg = input("> ")
-				msg = leet_main(msg)
+				msg = input("> ");msg = leet_main(msg)
 				requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", json={"content": msg}, headers={"Authorization": self.token})

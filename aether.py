@@ -48,7 +48,7 @@ if __name__ == "__main__":
 					token = manual_auth()
 			user = requests.get("https://discord.com/api/v9/users/@me", headers={"Authorization": token}).json()
 			userid = user['id'];print(info(f"Grabbed {user['username']}'s Author ID"))
-
-		if keyvalue["name"] == "leet":
+		
+		if keyvalue["name"] == "1337":
 			webs = WebsocketConn(*fault_token, userid)
 			webs.start_self()

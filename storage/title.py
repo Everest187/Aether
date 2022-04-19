@@ -1,6 +1,6 @@
 import fade, os
 from colorama import Fore, init
-from data impor options
+from data import options
 
 
 colors = {
@@ -34,15 +34,15 @@ class Logo:
 	   •		  •	{self.creator}	·	  ▪               
   		·	▪		·					
 	•		  ·		     ·		▪     
-	1 > 1337 .    ▪ 	     ▪   
-	2 > A Token's Death Lullaby •   	.     
+		 .    ▪ 	     ▪   
+				 •   	.     
 	       ·              ▪          •          •
 	└──────────────────────────────────────────────────┘
 			"""))
 		indx = 0
 		for key, value in options.items():
-		    print(f"[{Fore.MAGENTA}{key}{Fore.RESET}] > {value['name']:<20}",
-			end="" if indx % 2 == 0 else "\n")
+		    print(f"[{Fore.MAGENTA}{key}{Fore.RESET}] > {value['name']:<10}",
+			end="" if indx % 2 == 0 else "\n");print()
 		    indx += 1
 
 	def watermark(self, mark=None):

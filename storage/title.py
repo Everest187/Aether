@@ -40,11 +40,9 @@ class Logo:
 	└──────────────────────────────────────────────────┘
 			"""))
 		indx = 0
-		for key, val in options.items():
-		    print(
-			f"[{Fore.MAGENTA}{key}{Fore.RESET}] > {val['name']:<20}",
-			end = "" if indx % 2 == 0 else "\n"
-		    )
+		for key, value in options.items():
+		    print(f"[{Fore.MAGENTA}{key}{Fore.RESET}] > {value['name']:<20}",
+			end="" if indx % 2 == 0 else "\n")
 		    indx += 1
 
 	def watermark(self, mark=None):

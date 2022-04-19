@@ -1,5 +1,5 @@
 from storage.title import Logo
-from storage.s3lf import WebsocketConn
+from leet.self import WebsocketConn
 from utils import *
 from data import options
 import sys

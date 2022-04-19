@@ -17,7 +17,7 @@
   
 **Aether is a Multi-Tool containing a few BUT unique and powerful tools**
   
- **DISCLAIMER: the developers assume no liabilaty and are not responsible for any misuse or damages caused by the
+ **DISCLAIMER: the developers (me & redstoneradiant) assume no liabilaty and are not responsible for any misuse or damages caused by the
  script **
   
 *Functions/Tools*

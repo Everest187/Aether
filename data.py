@@ -1,10 +1,4 @@
-categories = {
-	"leet": "discord",
-	"tokenF": "discord"
-
-}
-
 options = {
-	"1": "leet",
-	"2": "tokenF"
+	"1": {"name": "1337", "category": "discord"}
+	"2": {"name": "A Token's Death Lullaby", "category": "discord"}
 }

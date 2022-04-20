@@ -40,7 +40,7 @@ if __name__ == "__main__":
 					auth = auth_token(token)
 					try:
 						if auth[1] == 200:
-							print(pn(True, 'authed token'));token_authed = True
+							print(pn(True, 'authenticated token'));token_authed = True
 					except TypeError:
 						print(pn(False, 'failed to auth token in data'))
 						token = manual_auth()

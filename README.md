@@ -60,3 +60,16 @@
   - *Few Chars* (Changes selected chars into Leet (Upper Case i.e., hEllo wORld -> h3llo w0I2d
   - *Direct Disc* (By typing in a Discord channel the program will recognize and find the channel id allowing you to send text straight from console which
   will then be converted into leet and will be delivered to the selected channel)
+
+```
+         •                 ·                  ·          ▪
+              •▄▄▄· ▄▄▄ .▄▄▄▄▄ ▄ .▄▄▄▄ .▄▄▄
+        ·     ▐█ ▀█ ▀▄.▀·•██  ██▪▐█▀  ▀·▀▄ █·
+              ▄█▀▀█ ▐▀▀▪▄ ▐█.▪██▀▐█▐▀▀▪▄▐▀▀▄  ▪
+       ·      ▐█ ▪▐▌▐█▄▄▌ ▐█▌·██▌▐▀▐█▄▄▌▐█•█▌
+           •              •             ·
+    •          ·         ▪         L  U  X  U  R  Y ·
+                ·       ▪               ·
+        •                 ·                  ·          ▪
+                .    ▪              ▪       ·
+              ·              ▪         •          •```

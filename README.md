@@ -1,5 +1,5 @@
 <h1 align="center">
-  Aether ~ EVREST
+  Aether ~ EVEREST
   <br>
 </h1>
 <p align="center">

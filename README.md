@@ -17,7 +17,7 @@
   
 **Aether is a Multi-Tool containing a few BUT unique and powerful tools**
 <p align="center">
-	<img width="763" src="https://cdn.rawgit.com/Everest187/Aether/master/banner/Aether.png" alt="Aether">
+	<img width="763" src="https://cdn.rawgit.com/Everest187/Aether/banner/Aether.png" alt="Aether">
 </p>
  **DISCLAIMER: the developers (me & redstoneradiant) assume no liabilaty and are not responsible for any misuse or damages caused by the
  script **

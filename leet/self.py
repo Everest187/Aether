@@ -24,11 +24,13 @@ class WebsocketConn:
 	        time.sleep(self.interval * random.randint(0, 1))
 	        self.send({"op": 1, "d": "null"})
 
-	def start_self(self):
+	def leet_ed(self):
 		self.ws.connect("wss://gateway.discord.gg/")
-		event = self.receive();print(info("Heartbeat Started"))
+		event = self.receive()
+
+		print(info("Heartbeat Started"))
 		self.interval = event["d"]["heartbeat_interval"] / 1000
-		threading._start_new_thread(self.heartbeat, ())
+		threading.Thread(target=self.heartbeat).start()
 		payload = {
 		    "op": 2,
 		    "d": {
@@ -42,11 +44,37 @@ class WebsocketConn:
 		while True:
 			event = self.receive()
 			if event["t"] == "READY":
-				print(info("Self Bot is ready"))
+				print(info("Logged in to Discord"))
 
 			elif event["t"] == "MESSAGE_CREATE" and event["d"]["author"]["id"] == self.author and event["d"]["content"].startswith("$s"):			
 				channel_id = event["d"]["channel_id"]
-				print(info(f"Sending to ({channel_id}})"))
+				print(info(f"Sending to ({channel_id})"))
 				print(logo.watermark("messenger"), end="")
-				msg = input("> ");msg = leet_main(msg)
+				msg = input("> ");
+				msg = leet_main(msg)
 				requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", json={"content": msg}, headers={"Authorization": self.token})
+
+
+	def auto_response(self):
+		self.ws.connect("wss://gateway.discord.gg/")
+		event = self.receive();print(info("Heartbeat Started"))
+		self.interval = event["d"]["heartbeat_interval"] / 1000
+		threading._start_new_thread(self.heartbeat, ())
+		payload = {
+		    "op": 2,
+		    "d": {
+		        "token": self.token,
+		        "intents": 16384,
+		        "properties": {"$os": "linux/windoself.ws", "$broself.wser": "firefox", "$device": "computer"},
+		    },
+		}
+
+		self.send(payload)
+		while True:
+			event = self.receive()
+			if event["t"] == "READY":
+				print(info("Self Bot is ready"))
+
+			elif event["t"] == "TYPING_START" and event["d"]["id"] == self.author:			
+				print(event)
+				print(event["t"])

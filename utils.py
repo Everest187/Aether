@@ -2,11 +2,6 @@ import json, requests
 from datetime import datetime
 from colorama import Fore, Style
 
-# def op_cfg(key):
-# 	with open("cfg.json", "r") as cfg_file:
-# 		json_data = json.load(cfg_file)
-# 		return json_data[key]
-
 def auth_token(token):
 	response = requests.patch(f"https://discord.com/api/v9/users/@me/settings", headers={"Authorization": token}, json=
 {"custom_status": None})
@@ -22,14 +17,18 @@ def get_token(mail, passw):
 def pn(boolean, statement):
 	return f"{Fore.LIGHTBLACK_EX}[{Fore.RESET}{Fore.MAGENTA}+{Fore.RESET}{Fore.LIGHTBLACK_EX}]{Fore.RESET} \033[0;37m{statement}{Fore.RESET}" if boolean else f"{Fore.LIGHTBLACK_EX}[{Fore.RESET}{Fore.RED}-{Fore.RESET}{Fore.LIGHTBLACK_EX}]{Fore.RESET} \033[0;37m{statement}{Fore.RESET}"
 
-def save_data(filename, data):
-	with open(filename, "w") as file:
-		file.write(data)
+def save_data(filename, data, value):
+	with open(filename, "r") as file:
+		json_data = json.load(file)
+		json_data[value] = data
+	with open(filename, 'w') as outfile:
+		json.dump(json_data, outfile)
 
-def read_data(filename):
+def read_data(filename, value):
 	try:
 		with open(filename, "r") as file:
-			return file.readlines()
+			json_data = json.load(file)
+		return json_data[value]
 	except FileNotFoundError:
 		return None
 

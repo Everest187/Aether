@@ -15,7 +15,7 @@
   </a>
 </p>
   
-**Aether is a Multi-Tool containing a few BUT unique and powerful tools**
+**Aether is a Multi-Tool only containing unique and powerful tools**
 <p align="center">
 	<img width="763" src="https://cdn.jsdelivr.net/gh/Everest187/Aether/banner/Aether.png" alt="Aether">
 </p>

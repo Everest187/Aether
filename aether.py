@@ -1,28 +1,37 @@
+#files
 from storage.title import Logo
 from leet.self import WebsocketConn
 from tokenF.rape import raper
 from utils import *
 from data import options
+
+#internal libs
 import sys
+
+#external libs
 from colorama import Fore
 
 logo = Logo("e v e r e s t")
-token_authed = False
 
-def manual_auth():
-	grab_token = False
-	while grab_token is False:
-		print(f"{Fore.LIGHTBLACK_EX}> mail:pass{Fore.RESET}", end="")
-		mp = input(f"\r> ").split(":")
-		token = get_token(mp[0], mp[1])
-		if token[1] == 200:
-			print(pn(True, 'grabbed token'));token_authed = True
-			save_data("discord.json", token[0], "token")
-			grab_token = True  
-		else: 
-			print(pn(False, 'failed to grab token')) 
-			grab_token = False
-	return token
+class Aether:
+	def __init__(self):
+		self.token_authed = False
+		
+	@staticmmethod
+	def manual_auth():
+		grab_token = False
+		while grab_token is False:
+			print(f"{Fore.LIGHTBLACK_EX}> mail:pass{Fore.RESET}", end="")
+			mp = input(f"\r> ").split(":")
+			token = get_token(mp[0], mp[1])
+			if token[1] == 200:
+				print(pn(True, 'grabbed token'));token_authed = True
+				save_data("discord.json", token[0], "token")
+				grab_token = True  
+			else: 
+				print(pn(False, 'failed to grab token')) 
+				grab_token = False
+		return token
 
 if __name__ == "__main__":
 	logo.clear()
@@ -61,4 +70,3 @@ if __name__ == "__main__":
 
 			elif keyvalue["name"] == "Auto Response":
 				webs.auto_response()
-

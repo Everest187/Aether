@@ -25,7 +25,7 @@ class Aether:
 			mp = input(f"\r> ").split(":")
 			token = get_token(mp[0], mp[1])
 			if token[1] == 200:
-				print(pn(True, 'grabbed token'));token_authed = True
+				print(pn(True, 'grabbed token'));self.token_authed = True
 				save_data("discord.json", token[0], "token")
 				grab_token = True  
 			else: 
@@ -51,7 +51,7 @@ if __name__ == "__main__":
 					auth = auth_token(token)
 					try:
 						if auth[1] == 200:
-							print(pn(True, 'authed token'));token_authed = True
+							print(pn(True, 'authed token'));self.token_authed = True
 					except TypeError:
 						print(pn(False, 'failed to auth token in data'))
 						token = manual_auth()

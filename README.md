@@ -54,12 +54,23 @@
   -----
 
   ## **Features**
-  *Fully Automated*
-   - *Decoder* (Reverses Leet into readable text)
-   - *Encoder* (Changes readable text into Leet A.B.C)
-  - *Few Chars* (Changes selected chars into Leet (Upper Case i.e., hEllo wORld -> h3llo w0I2d
-  - *Direct Disc* (By typing in a Discord channel the program will recognize and find the channel id allowing you to send text straight from console which
-  will then be converted into leet and will be delivered to the selected channel)
+  **Leet**
+  	*Fully Automated*
+   		- *Decoder* (Reverses Leet into readable text)
+   		- *Encoder* (Changes readable text into Leet A.B.C)
+  		- *Few Chars* (Changes selected chars into Leet (Upper Case i.e., hEllo wORld -> h3llo w0I2d
+  		- *Direct Disc* (By typing in a Discord channel the program will recognize and find the channel id allowing you to send text straight from 			console which will then be converted into leet and will be delivered to the selected channel)
+  **Token Nuker**
+  	*Automated*
+		- *Uses a fast request method for a fast account nuke*
+		- *Theme Rotater* (Changes theme to light & dark mode)
+		- *Removes and closes all dms to never get them back*
+		- *Leaves servers*
+		- *Removes avatar and changes custom/status*
+  **Instant Term**
+	*Automated*
+		- *immediately ban and term a discord account*
+		
 
 ```
          •                 ·                  ·          ▪

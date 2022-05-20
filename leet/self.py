@@ -58,7 +58,7 @@ class WebsocketConn:
 					requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", json={"content": msg}, headers={"Authorization": self.token})
 		except KeyboardInterrupt:
 			info(f"{Fore.YELLOW}requested shutdown, closing Aether, this may take some time... {Fore.RESET}")
-			quit(self.ws.close())
+			close(self.ws.close())
 
 	def auto_response(self):
 		self.ws.connect("wss://gateway.discord.gg/")

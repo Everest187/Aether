@@ -1,5 +1,5 @@
 from leet.self import WebsocketConn
-from tokenF.rape import raper
+from tokf.rape import raper
 
 def execs(keyvalue, token, userid):
 	webs = WebsocketConn(token, userid)

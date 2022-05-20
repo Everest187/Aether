@@ -45,5 +45,5 @@ def pn(boolean, statement):
 def info(msg):
 	print(f"{Fore.MAGENTA}[{datetime.now().strftime('%S.%f')}]{Fore.RESET} {Fore.MAGENTA + Style.BRIGHT}{msg}{Fore.RESET + Style.RESET_ALL}")
 
-def close(code: int) -> None:
-	sys.exit(code)
+def close(code: int=None, command=None) -> None:
+	sys.exit(code) if code != None else sys.exit(command)

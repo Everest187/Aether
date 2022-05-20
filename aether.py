@@ -1,8 +1,7 @@
 #files
 from storage.title import Logo
-from leet.self import WebsocketConn
-from tokenF.rape import raper
-from utils import Discord, FileData
+from storage.exec import execs
+from utils import Discord, FileData, pn, info
 from data import Data
 
 #internal libs
@@ -25,7 +24,7 @@ class Aether:
 			token = Discord.get_token(mp[0], mp[1])
 			if token[1] == 200:
 				print(pn(True, 'grabbed token'));self.token_authed = True
-				FileData.save_data("discord.json", token[0], "token")
+				FileData.save_data("./db/discord.json", token[0], "token")
 				grab_token = True  
 			else: 
 				print(pn(False, 'failed to grab token')) 
@@ -36,7 +35,7 @@ class Aether:
 		opt = Logo.watermark("root")
 
 		if (keyvalue := Data.options[opt]) and (keyvalue["category"] == "discord"):
-			fault_token = FileData.read_data("discord.json", "token")
+			fault_token = FileData.read_data("./db/discord.json", "token")
 			try:
 				token = "".join(fault_token)
 			except TypeError:
@@ -51,20 +50,13 @@ class Aether:
 						print(pn(False, 'failed to auth token in data'))
 						token = manual_auth()
 				else:
-					token = manual_auth()
-			token = FileData.read_data("discord.json", "token")
+					token = self.manual_auth()
+			token = FileData.read_data("./db/discord.json", "token")
 			user = Discord.discord_data(token)
-			FileData.save_data("discord.json", user['discriminator'], "discrim")
-			userid = user['id'];print(info(f"Grabbed {user['username']}'s Author ID"))
-			webs = WebsocketConn(token, userid)
-			if keyvalue["name"] == "1337":
-				webs.leet_ed()
-
-			elif keyvalue["name"] == "\n0\n//\n\\3-- Token\n/\\":
-				raper(token)
-
-			elif keyvalue["name"] == "Auto Response":
-				webs.auto_response()
+			FileData.save_data("./db/discord.json", user['discriminator'], "discrim")
+			info(f"Grabbed {user['username']}'s Author ID")
+			execs(keyvalue, token, user['id'])
+		return
 
 if __name__ == "__main__":
 	Logo.clear()

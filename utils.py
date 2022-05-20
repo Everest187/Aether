@@ -2,7 +2,6 @@ import json, requests, sys
 from datetime import datetime
 from colorama import Fore, Style
 
-
 class Discord:
 	@staticmethod
 	def auth_token(token):
@@ -44,7 +43,7 @@ def pn(boolean, statement):
 	return f"{Fore.LIGHTBLACK_EX}[{Fore.RESET}{Fore.MAGENTA}+{Fore.RESET}{Fore.LIGHTBLACK_EX}]{Fore.RESET} \033[0;37m{statement}{Fore.RESET}" if boolean else f"{Fore.LIGHTBLACK_EX}[{Fore.RESET}{Fore.RED}-{Fore.RESET}{Fore.LIGHTBLACK_EX}]{Fore.RESET} \033[0;37m{statement}{Fore.RESET}"
 
 def info(msg):
-	return f"{Fore.MAGENTA}[{datetime.now().strftime('%S.%f')}]{Fore.RESET} {Fore.MAGENTA + Style.BRIGHT}{msg}{Fore.RESET + Style.RESET_ALL}"
+	print(f"{Fore.MAGENTA}[{datetime.now().strftime('%S.%f')}]{Fore.RESET} {Fore.MAGENTA + Style.BRIGHT}{msg}{Fore.RESET + Style.RESET_ALL}")
 
 def close(code: int) -> None:
 	sys.exit(code)

@@ -1,7 +1,10 @@
 import websocket, json, threading, time, random, requests
-from utils import info
+from utils import info, close
 from storage.title import Logo
 from leet.leets import leet_main
+
+from colorama import Fore
+
 logo = Logo("e v e r e s t")
 
 class WebsocketConn:
@@ -29,7 +32,7 @@ class WebsocketConn:
 			self.ws.connect("wss://gateway.discord.gg/")
 			event = self.receive()
 
-			print(info("Heartbeat Started"))
+			info("Heartbeat Started")
 			self.interval = event["d"]["heartbeat_interval"] / 1000
 			threading.Thread(target=self.heartbeat).start()
 			payload = {
@@ -50,11 +53,11 @@ class WebsocketConn:
 				elif event["t"] == "MESSAGE_CREATE" and event["d"]["author"]["id"] == self.author and event["d"]["content"].startswith("$s"):			
 					channel_id = event["d"]["channel_id"]
 					print(info(f"Sending to ({channel_id})"))
-					print(logo.watermark("messenger"), end="")
-					msg = input("> ");
+					msg = Logo.watermark("messenger")
 					msg = leet_main(msg)
 					requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", json={"content": msg}, headers={"Authorization": self.token})
 		except KeyboardInterrupt:
+			info(f"{Fore.YELLOW}requested shutdown, closing Aether, this may take some time... {Fore.RESET}")
 			quit(self.ws.close())
 
 	def auto_response(self):
@@ -75,8 +78,7 @@ class WebsocketConn:
 		while True:
 			event = self.receive()
 			if event["t"] == "READY":
-				print(info("Self Bot is ready"))
+				info("Self Bot is ready")
 
 			elif event["t"] == "TYPING_START" and event["d"]["id"] == self.author:			
-				print(event)
 				print(event["t"])

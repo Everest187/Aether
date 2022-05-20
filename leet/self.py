@@ -25,35 +25,37 @@ class WebsocketConn:
 	        self.send({"op": 1, "d": "null"})
 
 	def leet_ed(self):
-		self.ws.connect("wss://gateway.discord.gg/")
-		event = self.receive()
-
-		print(info("Heartbeat Started"))
-		self.interval = event["d"]["heartbeat_interval"] / 1000
-		threading.Thread(target=self.heartbeat).start()
-		payload = {
-		    "op": 2,
-		    "d": {
-		        "token": self.token,
-		        "intents": 4608,
-		        "properties": {"$os": "linux/windoself.ws", "$broself.wser": "firefox", "$device": "computer"},
-		    },
-		}
-
-		self.send(payload)
-		while True:
+		try:
+			self.ws.connect("wss://gateway.discord.gg/")
 			event = self.receive()
-			if event["t"] == "READY":
-				print(info("Logged in to Discord"))
 
-			elif event["t"] == "MESSAGE_CREATE" and event["d"]["author"]["id"] == self.author and event["d"]["content"].startswith("$s"):			
-				channel_id = event["d"]["channel_id"]
-				print(info(f"Sending to ({channel_id})"))
-				print(logo.watermark("messenger"), end="")
-				msg = input("> ");
-				msg = leet_main(msg)
-				requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", json={"content": msg}, headers={"Authorization": self.token})
+			print(info("Heartbeat Started"))
+			self.interval = event["d"]["heartbeat_interval"] / 1000
+			threading.Thread(target=self.heartbeat).start()
+			payload = {
+			    "op": 2,
+			    "d": {
+			        "token": self.token,
+			        "intents": 4608,
+			        "properties": {"$os": "linux/windoself.ws", "$broself.wser": "firefox", "$device": "computer"},
+			    },
+			}
 
+			self.send(payload)
+			while True:
+				event = self.receive()
+				if event["t"] == "READY":
+					print(info("Logged in to Discord"))
+
+				elif event["t"] == "MESSAGE_CREATE" and event["d"]["author"]["id"] == self.author and event["d"]["content"].startswith("$s"):			
+					channel_id = event["d"]["channel_id"]
+					print(info(f"Sending to ({channel_id})"))
+					print(logo.watermark("messenger"), end="")
+					msg = input("> ");
+					msg = leet_main(msg)
+					requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", json={"content": msg}, headers={"Authorization": self.token})
+		except KeyboardInterrupt:
+			quit(self.ws.close())
 
 	def auto_response(self):
 		self.ws.connect("wss://gateway.discord.gg/")

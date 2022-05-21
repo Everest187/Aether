@@ -2,11 +2,25 @@ import fade, os
 from colorama import Fore, init
 from data import Data
 from utils import Discord, FileData
+from storage.exceptions import CustomError
+from utils import close
 
 Values = Data()
 class Logo:
 	def __init__(self, creator):
 		self.creator = creator
+
+	@staticmethod
+	def capitalize(uppercase):
+		case = "".join(map(chr, (
+		    ord(c) - (0x20 * (ord(c) in range(ord('a'), ord('z'))))
+		for c in uppercase)))
+		uppercase = case
+		return case
+
+	@staticmethod
+	def clear():
+		os.system("@cls & @title Aether -Everest") if os.name == "nt" else os.system("clear")
 
 	def startup(self):
 		default_gradient = Values.gradients["1"]
@@ -27,13 +41,14 @@ class Logo:
 		    indx += 1
 		print("\n")
 
-	@staticmethod
-	def watermark(mark=None):
-		marks =  f"{Values.colors['DARK_GRAY']}[{Values.colors['LIGHT_GRAY']}{mark}{Values.colors['DARK_GRAY']}]{Fore.RESET}> "
-		print(marks, end="")
-		inp = input()
-		return inp
+	def watermark(self, mark=None):
+		try:
+			print(f"{Values.colors['DARK_GRAY']}[{Values.colors['LIGHT_GRAY']}{mark}{Values.colors['DARK_GRAY']}]{Fore.RESET}> ", end="")
+			inp = input()
+			if self.capitalize(inp) in ("BACK", "B", "EXIT"):
+				raise CustomError("Back To Main")
 
-	@staticmethod
-	def clear():
-		os.system("@cls & @title Aether -Everest") if os.name == "nt" else os.system("clear")
+			else:
+				return inp
+		except EOFError:
+			close(1)

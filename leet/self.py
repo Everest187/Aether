@@ -2,6 +2,7 @@ import websocket, json, threading, time, random, requests
 from utils import info, close
 from storage.title import Logo
 from leet.leets import leet_main
+from storage.exceptions import CustomError
 
 from colorama import Fore
 
@@ -48,17 +49,18 @@ class WebsocketConn:
 			while True:
 				event = self.receive()
 				if event["t"] == "READY":
-					print(info("Logged in to Discord"))
+					info("Logged in to Discord")
 
 				elif event["t"] == "MESSAGE_CREATE" and event["d"]["author"]["id"] == self.author and event["d"]["content"].startswith("$s"):			
 					channel_id = event["d"]["channel_id"]
-					print(info(f"Sending to ({channel_id})"))
+					info(f"Sending to ({channel_id})")
 					msg = Logo.watermark("messenger")
 					msg = leet_main(msg)
 					requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", json={"content": msg}, headers={"Authorization": self.token})
+		
 		except KeyboardInterrupt:
-			info(f"{Fore.YELLOW}requested shutdown, closing Aether, this may take some time... {Fore.RESET}")
-			close(self.ws.close())
+			info(f"{Fore.YELLOW}requested shutdown, going back to main... {Fore.RESET}\r")
+			raise CustomError("Back To Main")
 
 	def auto_response(self):
 		self.ws.connect("wss://gateway.discord.gg/")

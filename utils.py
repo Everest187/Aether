@@ -40,7 +40,7 @@ class FileData:
 			return None
 
 def pn(boolean, statement):
-	return f"{Fore.LIGHTBLACK_EX}[{Fore.RESET}{Fore.MAGENTA}+{Fore.RESET}{Fore.LIGHTBLACK_EX}]{Fore.RESET} \033[0;37m{statement}{Fore.RESET}" if boolean else f"{Fore.LIGHTBLACK_EX}[{Fore.RESET}{Fore.RED}-{Fore.RESET}{Fore.LIGHTBLACK_EX}]{Fore.RESET} \033[0;37m{statement}{Fore.RESET}"
+	print(f"{Fore.LIGHTBLACK_EX}[{Fore.RESET}{Fore.MAGENTA}+{Fore.RESET}{Fore.LIGHTBLACK_EX}]{Fore.RESET} \033[0;37m{statement}{Fore.RESET}" if boolean else f"{Fore.LIGHTBLACK_EX}[{Fore.RESET}{Fore.RED}-{Fore.RESET}{Fore.LIGHTBLACK_EX}]{Fore.RESET} \033[0;37m{statement}{Fore.RESET}")
 
 def info(msg):
 	print(f"{Fore.MAGENTA}[{datetime.now().strftime('%S.%f')}]{Fore.RESET} {Fore.MAGENTA + Style.BRIGHT}{msg}{Fore.RESET + Style.RESET_ALL}")

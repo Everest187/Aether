@@ -4,7 +4,7 @@ from tokf.rape import raper
 def execs(keyvalue, token, userid):
 	webs = WebsocketConn(token, userid)
 	if keyvalue["name"] == "1337":
-		webs.leet_ed()
+		webs.leet_conn()
 
 	elif keyvalue["name"] == "\n0\n//\n\\3-- Token\n/\\":
 		raper(token)

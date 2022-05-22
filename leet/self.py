@@ -10,6 +10,7 @@ logo = Logo("e v e r e s t")
 
 class WebsocketConn:
 	def __init__(self, token, author):
+		self.channelid = []
 		self.ws = websocket.WebSocket()
 		self.interval = None
 		self.token = token
@@ -28,7 +29,15 @@ class WebsocketConn:
 	        time.sleep(self.interval * random.randint(0, 1))
 	        self.send({"op": 1, "d": "null"})
 
-	def leet_ed(self):
+	def leet_send(self):
+		while True:
+			for channel_id in filter(lambda c: len(c) != 0, self.channelid):
+				info(f"Sending to ({channel_id})")
+				msg = Logo("").watermark("messenger")
+				msg = leet_main(msg)
+				requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", json={"content": msg}, headers={"Authorization": self.token})
+
+	def leet_conn(self):
 		try:
 			self.ws.connect("wss://gateway.discord.gg/")
 			event = self.receive()
@@ -41,22 +50,21 @@ class WebsocketConn:
 			    "d": {
 			        "token": self.token,
 			        "intents": 4608,
-			        "properties": {"$os": "linux/windoself.ws", "$broself.wser": "firefox", "$device": "computer"},
+			        "properties": {"$os": "linux/windows", "$browser": "firefox", "$device": "computer"},
 			    },
 			}
 
 			self.send(payload)
+			threading.Thread(target=self.leet_send).start()
 			while True:
 				event = self.receive()
 				if event["t"] == "READY":
 					info("Logged in to Discord")
 
-				elif event["t"] == "MESSAGE_CREATE" and event["d"]["author"]["id"] == self.author and event["d"]["content"].startswith("$s"):			
+				elif event["t"] == "MESSAGE_CREATE" and event["d"]["author"]["id"] == self.author and event["d"]["content"].startswith("$s"):	
 					channel_id = event["d"]["channel_id"]
-					info(f"Sending to ({channel_id})")
-					msg = Logo.watermark("messenger")
-					msg = leet_main(msg)
-					requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", json={"content": msg}, headers={"Authorization": self.token})
+					self.channelid.clear()
+					self.channelid.append(channel_id)
 		
 		except KeyboardInterrupt:
 			info(f"{Fore.YELLOW}requested shutdown, going back to main... {Fore.RESET}\r")

@@ -4,11 +4,10 @@
 </h1>
 <p align="center">
   <a href="https://github.com/Everest187/Leet/blob/edit/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-Apache 2.0-black">
   </a>
   <a>
   <a href="https://github.com/Everest187/Leet/blob/main/main.py">
-      <img src="https://img.shields.io/badge/status-works-brightgreen">
+      <img src="https://img.shields.io/badge/status-WIP-brightgreen">
   </a>
   <a href="https://opensource.org/">
       <img src="https://img.shields.io/badge/Open%20Source-true-blue">

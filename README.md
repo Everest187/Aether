@@ -15,17 +15,16 @@
   </a>
 </p>
   
-**Aether is a Multi-Tool only containing unique and powerful tools**
+**Aether is a Multi-Tool that only has one-of-a-kind tools.**
 <p align="center">
 	<img width="763" src="https://cdn.jsdelivr.net/gh/Everest187/Aether/banner/aether.png" alt="Aether">
 </p>
- **DISCLAIMER: the developers assume no liabilaty and are not responsible for any misuse or damages caused by the
- script **
+ **DISCLAIMER: The developers accept no responsibility and are not liable for any misuse or damage caused by the script.**
   
 *Functions/Tools*
   - Leet . 1337 
-  **Discord T0S is pretty rough and any Malicious words can lead to bans. 
-  This Script is a simple easy to use program to protect yourself against T0S. Allowing you to talk freely with your m8s on Discord.**
+  **Discord T0S is pretty rough and any offensive language can result in a ban.
+This script is a basic, easy-to-use application that will protect you from T0S. Allowing you to freely communicate with your Discord friends.**
   
   - Token Raper
 **Leaves servers, blocks all dms, changes status, profile, theme, lang and much more to f*** up a Discord account

@@ -68,4 +68,4 @@ if __name__ == "__main__":
 	while True:
 		Logo.clear()
 		logo.startup()
-		aether.main()
+		aether.main() 

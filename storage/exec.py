@@ -1,8 +1,10 @@
 from leet.self import WebsocketConn
 from tokf.rape import raper
+import os
 
 def execs(keyvalue, token, userid):
 	webs = WebsocketConn(token, userid)
+	os.system(f"@title Aether -Everest ./{keyvalue['name']}")
 	if keyvalue["name"] == "1337":
 		webs.leet_conn()
 

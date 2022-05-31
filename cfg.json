@@ -1,11 +1,12 @@
 {
 	"Discord": {
-		"prefix": "",
+		"prefix": ".",
 		"Leet": {
-			"event": ""
+			"select_channel": "select"
 		},
-		"Tokenf": {
-			
+		"Tokenf": {},
+		"AutoRes": {
+			"message": "Everest is not available atm"
 		}
 	}
 }

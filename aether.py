@@ -1,12 +1,12 @@
 #files
 from storage.title import Logo
-from storage.exec import execs
 from utils import Discord, FileData, pn, info, close
 from data import Data
 from storage.exceptions import CustomError
+from storage.exec import execs
 
 #internal libs
-import sys
+import sys, subprocess
 
 #external libs
 from colorama import Fore
@@ -68,4 +68,4 @@ if __name__ == "__main__":
 	while True:
 		Logo.clear()
 		logo.startup()
-		aether.main() 
+		aether.main()

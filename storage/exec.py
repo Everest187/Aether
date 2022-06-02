@@ -1,4 +1,4 @@
-from leet.self import WebsocketConn
+from selfs.self import WebsocketConn
 from tokf.rape import raper
 import os
 

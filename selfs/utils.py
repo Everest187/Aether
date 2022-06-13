@@ -10,6 +10,6 @@ def encode(string):
 	characters = []
 
 	for chars in string.lower():
-		characters.append(keywords[chars])
+		characters.append(keywords.get(chars, chars))
 
 	return "".join(characters)

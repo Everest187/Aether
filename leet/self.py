@@ -62,10 +62,10 @@ class WebsocketConn:
 			send_thr.start()
 			while True:
 				event = self.receive()
+				command = ocfg("cfg.json")["Discord"]["Leet"]["selected_channel"]
 				if event["t"] == "READY":
 					info("Logged in to Discord")
 
-				command = ocfg("cfg.json")["Discord"]["Leet"]["selected_channel"]
 				elif event["t"] == "MESSAGE_CREATE" and event["d"]["author"]["id"] == self.author and event["d"]["content"].startswith(f"{self.prefix}{command}"):	
 					channel_id = event["d"]["channel_id"]
 					self.channelid.clear()

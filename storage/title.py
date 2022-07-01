@@ -1,9 +1,10 @@
-import fade, os
+import fade, os, sys, importlib
 from colorama import Fore, init
 from data import Data
 from utils import Discord, FileData
 from storage.exceptions import CustomError
 from utils import close
+
 
 Values = Data()
 
@@ -30,7 +31,7 @@ class Logo:
     def clear():
         os.system("@cls & @title Aether -Everest") if os.name == "nt" else os.system(
             "clear"
-        )
+        )   
 
     def startup(self):
         default_gradient = Values.gradients["1"]
@@ -44,6 +45,11 @@ class Logo:
                 print(Values.gradients[str(int(discrim) % 5)])
         else:
             print(default_gradient)
+        print(f"""        [MOTD] {Values.motd['1']} [+]\n
+{Values.colors['DARK_GRAY']}[{Values.colors['LIGHT_GRAY']}root@上の空{Values.colors['DARK_GRAY']}]{Fore.RESET}~# help
+
+  {Values.colors['LIGHT_GRAY']}back, b, exit: display previous window{Fore.RESET}
+ """)
         indx = 0
         for key, value in Values.options.items():
             print(
@@ -56,7 +62,7 @@ class Logo:
     def watermark(self, mark=None):
         try:
             print(
-                f"{Values.colors['DARK_GRAY']}[{Values.colors['LIGHT_GRAY']}{mark}{Values.colors['DARK_GRAY']}]{Fore.RESET}> ",
+                f"{Values.colors['DARK_GRAY']}[{Values.colors['LIGHT_GRAY']}{mark}@上の空{Values.colors['DARK_GRAY']}]{Fore.RESET}~#  ",
                 end="",
             )
             inp = input()

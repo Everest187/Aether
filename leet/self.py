@@ -1,4 +1,4 @@
-import websocket, json, threading, time, random, requests
+import websocket, json, threading, time, random, requests, os
 from utils import info, close
 from storage.title import Logo
 from leet.leets import leet_main
@@ -73,8 +73,7 @@ class WebsocketConn:
                 event = self.receive()
                 command = ocfg("cfg.json")["Discord"]["Leet"]["selected_channel"]
                 if event["t"] == "READY":
-                    info("Logged in to Discord")
-
+                    info(f"Logged in to Discord")
                 elif (
                     event["t"] == "MESSAGE_CREATE"
                     and event["d"]["author"]["id"] == self.author

@@ -2,7 +2,7 @@
 	"Discord": {
 		"prefix": ".",
 		"Leet": {
-			"select_channel": "select"
+			"selected_channel": "select"
 		},
 		"Tokenf": {},
 		"AutoRes": {

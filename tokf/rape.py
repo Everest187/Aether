@@ -1,4 +1,5 @@
 import aiohttp, asyncio, time
+from utils import info
 
 data = []
 tasks = []
@@ -28,6 +29,7 @@ async def aeth(datas):
             )
         )
     await asyncio.gather(*tasks)
+    info("Attack Delivered")
     await sessions.close()
 
 

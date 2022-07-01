@@ -12,5 +12,5 @@ def execs(keyvalue, token, userid):
     elif keyvalue["name"] == "\n0\n//\n\\3-- Token\n/\\":
         raper(token)
 
-    elif keyvalue["name"] == "Auto Response":
+    elif keyvalue["name"] == "'-' Message":
         webs.auto_response()

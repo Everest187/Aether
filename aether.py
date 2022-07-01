@@ -6,7 +6,7 @@ from storage.exceptions import CustomError
 from storage.exec import execs
 
 # internal libs
-import sys, subprocess
+import sys, subprocess, threading
 
 # external libs
 from colorama import Fore
@@ -34,40 +34,48 @@ class Aether:
                 grab_token = False
         return token
 
+    @staticmethod
+    def root_startup():
+        opt = logo.watermark("root")
+        return opt
+
     def main(self):
-        try:
-            opt = logo.watermark("root")
+        while True:
+            try:
+                opt = Aether.root_startup()
 
-            if (keyvalue := Data.options[opt]) and (keyvalue["category"] == "discord"):
-                fault_token = FileData.read_data("./db/discord.json", "token")
-                try:
-                    token = "".join(fault_token)
-                except TypeError:
-                    token = self.manual_auth()
-                else:
-                    if "." in token:
-                        auth = Discord.auth_token(token)
-                        try:
-                            if auth[1] == 200:
-                                pn(True, "authed token")
-                                self.token_authed = True
-                        except TypeError:
-                            pn(False, "failed to auth token in data")
-                            token = self.manual_auth()
-                    else:
+                if (keyvalue := Data.options[opt]) and (keyvalue["category"] == "discord"):
+                    fault_token = FileData.read_data("./db/discord.json", "token")
+                    try:
+                        token = "".join(fault_token)
+                    except TypeError:
                         token = self.manual_auth()
-                token = FileData.read_data("./db/discord.json", "token")
-                user = Discord.discord_data(token)
-                FileData.save_data(
-                    "./db/discord.json", user["discriminator"], "discrim"
-                )
-                info(f"Grabbed {user['username']}'s Author ID")
-                execs(keyvalue, token, user["id"])
-        except CustomError:
-            return
-        except KeyboardInterrupt:
-            close(1)
+                    else:
+                        if "." in token:
+                            auth = Discord.auth_token(token)
+                            try:
+                                if auth[1] == 200:
+                                    pn(True, "authed token")
+                                    self.token_authed = True
+                            except TypeError:
+                                pn(False, "failed to auth token in data")
+                                token = self.manual_auth()
+                        else:
+                            token = self.manual_auth()
+                    token = FileData.read_data("./db/discord.json", "token")
+                    user = Discord.discord_data(token)
+                    FileData.save_data(
+                        "./db/discord.json", user["discriminator"], "discrim"
+                    )
+                    info(f"Grabbed {user['username']}'s Author ID")
+                    execs(keyvalue, token, user["id"])
 
+            except CustomError:
+                return
+            except KeyboardInterrupt:
+                close(1)
+            except KeyError:
+                Logo.help_menu() if opt.upper() == "HELP" else info("Invalid Option")
 
 if __name__ == "__main__":
     aether = Aether()

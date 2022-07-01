@@ -51,7 +51,7 @@ class WebsocketConn:
 
             info("Heartbeat Started")
             self.interval = event["d"]["heartbeat_interval"] / 1000
-            heartbeat_thr = threading.Thread(target=self.heartbeat)
+            heartbeat_thr = threading.Thread(target=self.heartbeat, daemon=True)
             heartbeat_thr.start()
             payload = {
                 "op": 2,
@@ -67,7 +67,7 @@ class WebsocketConn:
             }
 
             self.send(payload)
-            send_thr = threading.Thread(target=self.leet_send)
+            send_thr = threading.Thread(target=self.leet_send, daemon=True)
             send_thr.start()
             while True:
                 event = self.receive()
@@ -87,6 +87,8 @@ class WebsocketConn:
             info(
                 f"\n{Fore.YELLOW}requested shutdown, going back to main...{Fore.RESET}\r"
             )
+            send_thr.join()
+            heartbeat_thr.join()
             raise CustomError("Back To Main")
 
     def auto_response(self):

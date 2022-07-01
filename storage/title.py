@@ -33,6 +33,12 @@ class Logo:
             "clear"
         )   
 
+    @staticmethod
+    def help_menu():
+        print(f"""
+  {Values.colors['LIGHT_GRAY']}back, b, exit: display previous window{Fore.RESET}
+ """)
+
     def startup(self):
         default_gradient = Values.gradients["1"]
         if FileData.read_data("discord.json", "discrim") != None:
@@ -45,11 +51,9 @@ class Logo:
                 print(Values.gradients[str(int(discrim) % 5)])
         else:
             print(default_gradient)
-        print(f"""        [MOTD] {Values.motd['1']} [+]\n
-{Values.colors['DARK_GRAY']}[{Values.colors['LIGHT_GRAY']}root@上の空{Values.colors['DARK_GRAY']}]{Fore.RESET}~# help
-
-  {Values.colors['LIGHT_GRAY']}back, b, exit: display previous window{Fore.RESET}
- """)
+        print(f"        [MOTD] {Values.motd['1']} [+]\n")
+        print(f"{Values.colors['DARK_GRAY']}[{Values.colors['LIGHT_GRAY']}root@上の空{Values.colors['DARK_GRAY']}]{Fore.RESET}~# help")
+        Logo.help_menu()
         indx = 0
         for key, value in Values.options.items():
             print(
@@ -62,7 +66,7 @@ class Logo:
     def watermark(self, mark=None):
         try:
             print(
-                f"{Values.colors['DARK_GRAY']}[{Values.colors['LIGHT_GRAY']}{mark}@上の空{Values.colors['DARK_GRAY']}]{Fore.RESET}~#  ",
+                f"{Values.colors['DARK_GRAY']}[{Values.colors['LIGHT_GRAY']}{mark}@上の空{Values.colors['DARK_GRAY']}]{Fore.RESET}~# ",
                 end="",
             )
             inp = input()

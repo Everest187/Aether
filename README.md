@@ -26,7 +26,7 @@
 This script is a basic, easy-to-use application that will protect you from T0S. Allowing you to freely communicate with your Discord friends.**
   
   - Token Raper
-**Leaves servers, blocks all dms, changes status, profile, theme, lang and much more to f*** up a Discord account
+**Leaves servers, blocks all dms, changes status, profile, theme, lang and much more
   
   > Provided for @R3P & some other associates of scene.
   ```  
